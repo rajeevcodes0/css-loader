@@ -2,6 +2,7 @@
     padding:0;
     margin:0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .flex-container{
@@ -10,52 +11,67 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(217, 215, 215);
+}
+
+.flex-container::before{
+    content: "";
+    display: block;
+    background-image: url("./peeping-ninja.png");
+    background-size: cover;
+    position: absolute;
+    top:-20px;
+    left:-20px;
+    height: 100px;
+    width: 100px;
+    transform: rotate(160deg);
+
 }
 
 .loader-container{
-    /* border:1px solid grey; */
     display: flex;
-    transform: scale(3);
+    transform: scale(2);
+    transition: transform 0.3s;
 }
 
 .box{
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    background-color: grey;
-    /* transform: scale(0.8); */
     transform-origin: -50% 50%;
     transform: rotate(0deg)  scale(0.6);
     background-image: url("./suriken.png");
     background-size: cover;
 }
 .box-one{
+    background-image: url("./ninja.png");
+
+}
+.box-one-animation-class{
     animation-name: box-one-animation;
     animation-duration: 5s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
-    background-image: url("./ninja.png");
-
     
+
     
 }
 @keyframes box-one-animation {
     0%{
         transform: translateX(0px) scale(0.6);
-        background-color: yellow;
+        
     }
     50%{
         transform: translateX(250px)  scale(0.6);
-        background-color: red;
     }
     100%{
         transform: translateX(0px)  scale(0.6);
-        background-color: yellow;
+        
         
     }
 }
 
-.box-two{
+.box-two-animation-class{
     animation-name: box-two-animation;
     animation-duration: 5s;
     animation-fill-mode: forwards;
@@ -77,7 +93,7 @@
     }
 }
 
-.box-three{
+.box-three-animation-class{
     animation-name: box-three-animation;
     animation-duration: 4s;
     animation-delay: 0.5s;
@@ -100,7 +116,7 @@
     }
 }
 
-.box-four{
+.box-four-animation-class{
     animation-name: box-four-animation;
     animation-duration: 3s;
     animation-delay: 1s;
@@ -123,7 +139,7 @@
     }
 }
 
-.box-five{
+.box-five-animation-class{
     animation-name: box-five-animation;
     animation-duration: 2s;
     animation-delay: 1.5s;
@@ -146,13 +162,16 @@
     }
 }
 
-/* .box::after{
-    content:"";
-    display:block;
-    height: 5px;
-    width: 5px;
-    background-color: red;
+.loading-text{
     position: absolute;
-    top:50%;
-    left:-50%;
-} */
+    top:20%;
+    left:50%;
+    font-size: 2rem;
+    transform: translateX(-50%);
+}
+
+@media (max-width:700px) {
+    .loader-container{
+        transform: scale(1);
+    }
+}
